@@ -1,42 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Quote Generator</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Quote Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      color: #333;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #444;
+    }
+
+    #quoteDisplay {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 60%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      font-size: 1.2em;
+      line-height: 1.5;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 8px 15px;
+      background: #007bff;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
 </head>
 <body>
+  <h1>Dynamic Quote Generator</h1>
 
-    <div class="container">
-        <header>
-            <h1>Dynamic Quote Generator</h1>
-        </header>
+  <!-- Quote Display Area -->
+  <div id="quoteDisplay">Click "Show New Quote" to begin!</div>
 
-        <main>
-            <div id="notificationArea"></div>
+  <!-- Show New Quote Button -->
+  <button id="newQuote">Show New Quote</button>
 
-            <div id="quoteDisplay">
-            </div>
+  <!-- Add Quote Form -->
+  <div style="margin-top: 30px;">
+    <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+    <button onclick="addQuote()">Add Quote</button>
+  </div>
 
-            <select id="categoryFilter" aria-label="Filter by category" title="Filter by category">
-              <option value="all">All Categories</option>
-            </select>
-
-            <button id="newQuote">Show New Quote</button>
-<hr>
-
-            <div id="addQuoteContainer">
-            </div>
-
-            <div id="storageControls">
-                <button id="exportJson">Export Quotes (JSON)</button>
-                <label for="importFile" id="importFileLabel">Import Quotes (JSON):</label>
-                <input type="file" id="importFile" accept=".json" title="Import JSON file" placeholder="Choose a JSON file..." />
-            </div>
-        </main>
-    </div>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
