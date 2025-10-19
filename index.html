@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dynamic Quote Generator</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Quote Generator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>🌟 Dynamic Quote Generator 🌟</h1>
 
-  <!-- Quote Display Section -->
-  <div id="quoteContainer">
-    <p id="quoteDisplay">Click "Show New Quote" to get inspired!</p>
-  </div>
+    <div class="container">
+        <header>
+            <h1>Dynamic Quote Generator</h1>
+        </header>
 
-  <!-- Button to show a new random quote -->
-  <button id="newQuote">Show New Quote</button>
+        <main>
+            <div id="notificationArea"></div>
 
-  <!-- Form to add a new quote -->
-  <div id="addQuoteSection">
-    <h3>Add Your Own Quote</h3>
-    <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
-    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
-    <button id="addQuoteBtn">Add Quote</button>
-  </div>
+            <div id="quoteDisplay">
+            </div>
 
-  <!-- Category selection -->
-  <div id="categorySection">
-    <h3>Filter by Category</h3>
-    <select id="categoryFilter">
-      <option value="all">All</option>
-    </select>
-  </div>
+            <select id="categoryFilter" aria-label="Filter by category" title="Filter by category">
+              <option value="all">All Categories</option>
+            </select>
 
-  <script src="script.js"></script>
+            <button id="newQuote">Show New Quote</button>
+<hr>
+
+            <div id="addQuoteContainer">
+            </div>
+
+            <div id="storageControls">
+                <button id="exportJson">Export Quotes (JSON)</button>
+                <label for="importFile" id="importFileLabel">Import Quotes (JSON):</label>
+                <input type="file" id="importFile" accept=".json" title="Import JSON file" placeholder="Choose a JSON file..." />
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
