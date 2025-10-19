@@ -57,6 +57,11 @@
 
   <!-- Show New Quote Button -->
   <button id="newQuote">Show New Quote</button>
+<!-- Filter dropdown -->
+  <select id="categoryFilter">
+    <option value="all">All Categories</option>
+  </select>
+
 
   <!-- Add Quote Form -->
   <div style="margin-top: 30px;">
@@ -65,6 +70,14 @@
     <button onclick="addQuote()">Add Quote</button>
   </div>
 
+
+<!-- Import and Export -->
+  <div>
+    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+    <button onclick="exportToJsonFile()">Export Quotes</button>
+  </div>
+
+  
   <script src="script.js"></script>
 </body>
 </html>
