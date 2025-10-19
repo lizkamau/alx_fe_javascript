@@ -4,30 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dynamic Quote Generator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Dynamic Quote Generator</h1>
+  <h1>Dynamic Quote Generator with Server Sync</h1>
 
   <div id="quoteDisplay"></div>
-  <button id="newQuote">Show New Quote</button>
 
-  <!-- Category Filter -->
+  <button onclick="generateQuote()">Show Random Quote</button>
+  <button onclick="syncWithServer()">Sync Quotes</button>
+
+  <h3>Add a Quote</h3>
+  <input type="text" id="quoteInput" placeholder="Enter quote">
+  <input type="text" id="authorInput" placeholder="Enter author">
+  <input type="text" id="categoryInput" placeholder="Enter category">
+  <button onclick="addQuote()">Add Quote</button>
+
+  <h3>Filter by Category</h3>
   <select id="categoryFilter" onchange="filterQuotes()">
     <option value="all">All Categories</option>
   </select>
 
-  <!-- Add new quote -->
-  <div>
-    <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
-    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
-    <button onclick="addQuote()">Add Quote</button>
-  </div>
-
-  <!-- Import and Export -->
-  <div>
-    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
-    <button onclick="exportToJsonFile()">Export Quotes</button>
-  </div>
+  <p id="statusMessage"></p>
 
   <script src="script.js"></script>
 </body>
