@@ -1,0 +1,16 @@
+
+body {
+  background-image: url('edna.png');
+  background-size: cover;       /* make it cover the screen */
+  background-position: center;  /* center the image */
+  background-repeat: no-repeat; /* avoid repeating the image */
+  height: 100vh;                /* full viewport height */
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

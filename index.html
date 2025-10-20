@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dynamic Quote Generator</title>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Dynamic Quote Generator with Server Sync</h1>
+  <h1> Dynamic Quote Generator </h1>
 
-  <div id="quoteDisplay"></div>
+  <!-- Category Filter -->
+  <select id="categorySelect" onchange="showRandomQuote()"></select>
 
-  <button onclick="generateQuote()">Show Random Quote</button>
-  <button onclick="syncWithServer()">Sync Quotes</button>
+  <!-- Display Area -->
+  <p id="quoteDisplay" style="font-style: italic; margin-top: 20px;"></p>
 
-  <h3>Add a Quote</h3>
-  <input type="text" id="quoteInput" placeholder="Enter quote">
-  <input type="text" id="authorInput" placeholder="Enter author">
-  <input type="text" id="categoryInput" placeholder="Enter category">
-  <button onclick="addQuote()">Add Quote</button>
+  <!-- New Quote Form -->
+  <div style="margin-top: 20px;">
+    <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+    <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+    <button onclick="addQuote()">Add Quote</button>
+  </div>
 
-  <h3>Filter by Category</h3>
-  <select id="categoryFilter" onchange="filterQuotes()">
-    <option value="all">All Categories</option>
-  </select>
-
-  <p id="statusMessage"></p>
+  <!-- Show Random Quote Button -->
+  <div style="margin-top: 10px;">
+    <button onclick="showRandomQuote()">Show Random Quote</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
