@@ -1,123 +1,31 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dynamic Quote Generator</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      padding: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-      line-height: 1.5;
-      color: #222;
-      background: #f7f9fc;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 18px;
-    }
-
-    h1 { margin: 0; font-size: 1.4rem; }
-
-    #controls {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-    }
-
-    select, button, input[type="text"] {
-      padding: 8px 10px;
-      border-radius: 6px;
-      border: 1px solid #d1d7df;
-      background: white;
-      font-size: 0.95rem;
-    }
-
-    button {
-      cursor: pointer;
-      background: linear-gradient(#4a8cff, #2a6df5);
-      color: white;
-      border: none;
-    }
-
-    #quote {
-      background: white;
-      padding: 18px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(20,30,70,0.06);
-      margin-bottom: 18px;
-    }
-
-    #quote p { margin: 0; font-size: 1.1rem; }
-
-    #quote .meta {
-      margin-top: 10px;
-      color: #5a6673;
-      font-size: 0.9rem;
-    }
-
-    #add-quote-container {
-      background: white;
-      padding: 14px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(20,30,70,0.04);
-    }
-
-    #add-quote-container .row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 8px;
-      flex-wrap: wrap;
-    }
-
-    .small {
-      font-size: 0.85rem;
-      color: #5a6673;
-    }
-
-    .message {
-      margin-top: 8px;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 520px) {
-      #controls { flex-direction: column; align-items: stretch; }
-      .row { flex-direction: column; }
-    }
-  </style>
-</head>
-<body>
-  <header>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Quote Generator</title>
+  </head>
+  <body>
     <h1>Dynamic Quote Generator</h1>
-    <div class="small">Add quotes & categories dynamically</div>
-  </header>
+    <div id="quoteDisplay"></div>
+    <button id="newQuote">Show New Quote</button>
+    <br><br>
+     <div>
+      <input id="newQuoteText" type="text" placeholder="Enter a new quote" /><br><br>
+      <input id="newQuoteCategory" type="text" placeholder="Enter quote category" /><br><br>
+      <button onclick="addQuote()">Add Quote</button>
+      <button id="exportQuotes">Export Quotes</button>
+      <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+      <button id="resolveConflicts">Resolve Conflicts</button>
 
-  <section id="app">
-    <div id="controls">
-      <!-- category select and show button will be inserted dynamically -->
-      <div id="category-container"></div>
-      <button id="show-random-btn">Show Random Quote</button>
-      <button id="add-form-toggle">Toggle Add Quote Form</button>
-    </div>
+  </div>
+  <div id="quoteDisplay"></div>
+  <div id="syncNotice"></div>
 
-    <div id="quote" aria-live="polite">
-      <!-- displayed quote -->
-      <p id="quote-text">Loading quotes...</p>
-      <div class="meta" id="quote-meta"></div>
-    </div>
-
-    <div id="add-quote-container" aria-hidden="true">
-      <!-- add quote form will be created dynamically -->
-    </div>
-  </section>
-
-  <script src="script.js"></script>
-</body>
-</html>
+   <select id="categoryFilter" onchange="filterQuotes()">
+    <option value="all">All Categories</option>
+    <!-- Dynamically populated categories -->
+  </select>
+    <script src="script.js"></script>
+  </body>
+  </html>
